@@ -1,0 +1,8 @@
+1.打开/关闭多媒体文件
+  avformat_open_input(&fmt_ctx,"test.mp4",NULL,NULL);
+  avformat_close_input(&fmt_ctx);
+2.输出多媒体metadata信息。
+  av_dump_format(fmt_ctx,0,"test.mp4",0);
+
+
+
