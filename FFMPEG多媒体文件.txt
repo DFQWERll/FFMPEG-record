@@ -1,0 +1,12 @@
+1.多媒体上下文 AVFormatContext
+
+2.流 AVStream
+
+3.包 AVPacket
+
+4.帧
+
+
+FFMpeg操作流数据的基本步骤
+
+解复用 ---- 获取流 --- 读数据包 --- 释放资源 

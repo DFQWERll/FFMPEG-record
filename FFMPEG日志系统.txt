@@ -1,0 +1,30 @@
+1.FFMPEG日志系统
+example:
+    #include<libavutil/log.h>
+    av_log_set_level(AV_LOG_DEBUG);
+    av_log(NULL,AV_LOG_INFO,"..%s\n",op);
+
+mac下编译：
+    clang -g -o ffmpeg_log ffmpeg_log.c -lavutil
+
+
+2.文件的删除与重命名
+avpriv_io_delete()
+avpriv_io_move()
+
+clang -g -o ffmpeg_del ffmpeg_file.c `pkg-config --libs libavformat`
+
+
+3.操作目录
+api:
+    avio_open_dir()
+    avio_read_dir()
+    avio_close_dir()
+
+strcut:
+    AVIODirContext
+    操作目录的上下文
+   
+    AVIODirEntry
+    目录项
+
