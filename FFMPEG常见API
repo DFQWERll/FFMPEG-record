@@ -15,6 +15,7 @@
    4).循环读取压缩帧，0 is OK。
    av_read_frame(fmt_ctx,pkt)
    5).判断pkt的stream_index ==? streamIndex,等于就写入文件。
+   6).释放空间工作
    
    ps:最后得到的acc文件是不能播放的，播放器需要知道音频的声道，采样率才能播放，需要在文件加入adtst头才能播放！
    
