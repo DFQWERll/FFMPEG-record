@@ -1,8 +1,23 @@
 1.打开/关闭多媒体文件
   avformat_open_input(&fmt_ctx,"test.mp4",NULL,NULL);
   avformat_close_input(&fmt_ctx);
+
 2.输出多媒体metadata信息。
   av_dump_format(fmt_ctx,0,"test.mp4",0);
+  
+3.使用FFMPEG抽取ACC音频数据
+   1).打开多媒体文件 
+   avformat_open_input(&fmt_ctx,"test.mp4",NULL,NULL);
+   2).确定流索引                  
+   streamIndex = av_find_best_stream(fmt_ctx,AVMEDIA_TYPE_AUDIO,-1,-1,NULL,0);
+   3).分配packet空间
+   AVpacket *pkt = av_packet_alloc();
+   4).循环读取压缩帧，0 is OK。
+   av_read_frame(fmt_ctx,pkt)
+   5).判断pkt的stream_index ==? streamIndex,等于就写入文件。
+   
+   ps:最后得到的acc文件是不能播放的，播放器需要知道音频的声道，采样率才能播放，需要在文件加入adtst头才能播放！
+   
 
 
 
